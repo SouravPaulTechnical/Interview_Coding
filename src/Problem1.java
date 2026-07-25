@@ -3,7 +3,6 @@ import java.util.*;
 public class Problem1 {
     public Map<String, Integer> countFailedTests(List<String> logs){
         Map<String, Integer> resultMap=new HashMap<>();
-        int count=0;
         for (String eachLog: logs){
             String[] parts=eachLog.split("\\s");
             if(parts[0].equalsIgnoreCase("FAIL")){
