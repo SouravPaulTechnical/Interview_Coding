@@ -6,13 +6,16 @@ public class Problem5 {
         for (String eachInput:inputList){
             calculateMap.put(eachInput, calculateMap.getOrDefault(eachInput,0)+1);
         }
-        List<Map.Entry<String, Integer>> list=new ArrayList<>(calculateMap.entrySet());
-        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        List<Map.Entry<String, Integer>> CalculateList=new ArrayList<>(calculateMap.entrySet());
+        CalculateList.sort(
+                Map.Entry.<String, Integer>comparingByValue(Comparator.reverseOrder())
+                        .thenComparing(Map.Entry.comparingByKey())
+        );
         List<String> finalList=new ArrayList<>();
-        for (Map.Entry<String, Integer> eachMapElement:list){
+        for (Map.Entry<String, Integer> eachMapElement:CalculateList){
             finalList.add(eachMapElement.getKey());
         }
-        return finalList.subList(0,kValue);
+        return finalList.subList(0, Math.min(calculateMap.size(), kValue));
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);

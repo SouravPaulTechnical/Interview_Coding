@@ -1,24 +1,35 @@
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Problem6 {
-    public Map<Character, Integer> countFrequency(String inputString){
-        Map<Character, Integer> calculateMap=new HashMap<>();
-        char[] eachCharInString = inputString.toCharArray();
-        for (Character c:eachCharInString){
-            calculateMap.put(c, calculateMap.getOrDefault(c, 0)+1);
+    public int calculateLongestSubstring(String inputString){
+        HashMap<Character, Integer> calculateIndex=new HashMap<>();
+        char[] eachCharacter=inputString.toCharArray();
+        int left=0;
+        int maxLength=0;
+        int right;
+        int maxStart=0;
+        for (right=0;right<eachCharacter.length;right++){
+            Character c=eachCharacter[right];
+            if (calculateIndex.containsKey(c)){
+                left=Math.max(left, calculateIndex.get(c)+1);
+            }
+            calculateIndex.put(c, right);
+            if (right - left + 1 > maxLength) {
+                maxLength = right - left + 1;
+                maxStart = left;
+            }
+            maxLength=Math.max(maxLength, right-left+1);
         }
-        return calculateMap;
+        System.out.println(inputString.substring(maxStart, maxStart+maxLength));
+        return maxLength;
     }
-    public static void main(String args[]){
+    public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter any String : ");
-        String inputString=sc.nextLine();
+        System.out.println("Enter String : ");
+        String inputString = sc.nextLine();
         Problem6 object=new Problem6();
-        Map<Character, Integer> resultMap=object.countFrequency(inputString);
-        for (Map.Entry<Character, Integer> eachMapElement:resultMap.entrySet()){
-            System.out.println(eachMapElement.getKey()+" = "+eachMapElement.getValue());
-        }
+        int result=object.calculateLongestSubstring(inputString);
+        System.out.println(result);
     }
 }
