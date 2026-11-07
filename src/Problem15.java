@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Problem15 {
+    // Finds the longest word by storing lengths and printing each distinct maximum-length word.
     public static void checkLongestWordUsingMap(String inputString){
         String[] eachWord = inputString.split("\\s");
         Map<String, Integer> storeEachLengthOfWord = new HashMap<>();
@@ -16,6 +17,7 @@ public class Problem15 {
         }
     }
 
+    // Finds one longest word by tracking the longest candidate during a single scan.
     public static void checkLongestWordSimple(String inputString){
         String[] eachWordInString = inputString.split("\\s");
         String longestWord="";

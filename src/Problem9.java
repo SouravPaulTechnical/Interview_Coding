@@ -3,10 +3,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Problem9 {
+    // Prints the indices of pairs whose values add up to the target.
     public static void checkTargetNumber(int[] arrayElements, int targetNumber){
         Map<Integer, Integer> checkTargetNumber = new HashMap<>();
         int compliment = 0;
         for (int i=0;i<arrayElements.length; i++){
+            // Look for the complement among values already visited.
             compliment=targetNumber-arrayElements[i];
             if (checkTargetNumber.containsKey(compliment)){
                 System.out.println("Index values are : "+checkTargetNumber.get(compliment)+ " "+i);

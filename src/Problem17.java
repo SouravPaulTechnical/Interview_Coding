@@ -1,4 +1,5 @@
 public class Problem17 {
+    // Returns the second-largest distinct value in the array.
     public static int checkSecondLargestElement(int[] inputArray){
         int largestNumber = Integer.MIN_VALUE;
         int secondLargestNumber = Integer.MIN_VALUE;
@@ -8,6 +9,7 @@ public class Problem17 {
                     "Array must contain 2 unique elements"
             );
         }
+        // Track the two largest distinct values while scanning each element once.
         for (int eachNumber : inputArray){
             if (eachNumber == largestNumber){
                 continue;

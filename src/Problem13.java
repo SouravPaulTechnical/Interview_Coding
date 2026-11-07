@@ -4,9 +4,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class Problem13 {
+    // Prints values from the second array that also occur in the first, using a map.
     public static void checkResultUsingMap(int[] inputArray1, int[] inputArray2){
         Map<Integer, Integer> storeFirstArray = new HashMap<>();
         int counter=0;
+        // Store first-array values, then check each value from the second array.
         for (int i=0;i<inputArray1.length;i++){
             storeFirstArray.put(i,inputArray1[i]);
         }
@@ -21,6 +23,7 @@ public class Problem13 {
         }
     }
 
+    // Prints distinct shared values by using sets for membership and result collection.
     public static void checkResultUsingSet(int[] inputArray1, int[] inputArray2){
         Set<Integer> set = new HashSet<>();
         Set<Integer> resultSet = new HashSet<>();

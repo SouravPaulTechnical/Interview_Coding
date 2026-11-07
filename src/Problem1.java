@@ -1,9 +1,11 @@
 import java.util.*;
 
 public class Problem1 {
+    // Counts how many log entries have the status FAIL, grouped by test name.
     public Map<String, Integer> countFailedTests(List<String> logs){
         Map<String, Integer> resultMap=new HashMap<>();
         for (String eachLog: logs){
+            // Each log line is expected to contain a status followed by a test name.
             String[] parts=eachLog.split("\\s");
             if(parts[0].equalsIgnoreCase("FAIL")){
                 resultMap.put(parts[1], resultMap.getOrDefault(parts[1], 0)+1);
@@ -12,6 +14,7 @@ public class Problem1 {
         return resultMap;
     }
     public static void main(String args[]){
+        // Read the requested number of log lines, then print each failed-test count.
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter how many inputs : ");
         int numberOfInput=sc.nextInt();

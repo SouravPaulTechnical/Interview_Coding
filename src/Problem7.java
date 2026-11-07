@@ -1,20 +1,24 @@
 import java.util.*;
 
 public class Problem7 {
+    // Sorts execution intervals by start time and merges any overlapping intervals.
     public List<int[]> mergeExecutionWindows(List<int[]> intervals){
         Collections.sort(intervals, (arr1, arr2)-> Integer.compare(arr1[0], arr2[0]));
         ArrayList<int[]> mergedIntervals=new ArrayList<>();
+        // An empty input has no intervals to merge.
         if (intervals.isEmpty()){
             return mergedIntervals;
         }
         else {
             mergedIntervals.add(intervals.getFirst());
         }
+        // Compare each interval with the last merged interval.
         for (int i=1;i<intervals.size();i++){
             if (mergedIntervals.getLast()[1]<intervals.get(i)[0]){
                 mergedIntervals.add(intervals.get(i));
             }
             else {
+                // Extend the current interval to cover the later end time.
                 mergedIntervals.getLast()[1]=Math.max(mergedIntervals.getLast()[1], intervals.get(i)[1]);
             }
         }

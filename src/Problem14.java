@@ -2,7 +2,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Problem14 {
+    // Removes repeated characters while preserving their first-seen order.
     public static void checkResult(String inputString){
+        // LinkedHashSet keeps insertion order while ensuring each character appears once.
         Set<Character> checkSet = new LinkedHashSet<>();
         for (char c:inputString.toCharArray()){
             checkSet.add(c);
