@@ -1,10 +1,12 @@
 import java.util.*;
 
 public class Problem3 {
+    // Groups test names by the status at the start of each log line.
     public Map<String, List<String>> groupTestCasesByStatus(List<String> logs){
         Map<String, List<String>> calculateMap = new HashMap<>();
         for (String eachLogs:logs){
             String[] partLogs=eachLogs.split("\\s");
+            // Reuse the status list when present; otherwise start a new group.
             List<String> checkList=calculateMap.get(partLogs[0]);
             if(checkList==null){
                 checkList=new ArrayList<>();

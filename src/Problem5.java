@@ -1,11 +1,14 @@
 import java.util.*;
 
 public class Problem5 {
+    // Returns up to k test names, ordered by frequency and then alphabetically.
     public List<String> topKFailedTests(List<String> inputList, int kValue){
         Map<String, Integer> calculateMap=new HashMap<>();
+        // Count how often each test name appears.
         for (String eachInput:inputList){
             calculateMap.put(eachInput, calculateMap.getOrDefault(eachInput,0)+1);
         }
+        // Sort most frequent first; alphabetical order breaks ties deterministically.
         List<Map.Entry<String, Integer>> CalculateList=new ArrayList<>(calculateMap.entrySet());
         CalculateList.sort(
                 Map.Entry.<String, Integer>comparingByValue(Comparator.reverseOrder())
@@ -15,6 +18,7 @@ public class Problem5 {
         for (Map.Entry<String, Integer> eachMapElement:CalculateList){
             finalList.add(eachMapElement.getKey());
         }
+        // Return no more than k entries (or the number of distinct names).
         return finalList.subList(0, Math.min(calculateMap.size(), kValue));
     }
     public static void main(String[] args) {

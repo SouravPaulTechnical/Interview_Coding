@@ -3,9 +3,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Problem10 {
+    // Returns the first unique character after removing whitespace and ignoring case.
     public static char checkNonRepeatingCharacter(String string){
+        // Normalize the input so spaces and letter case do not affect the result.
         String inputString = string.replaceAll("\\s", "").toLowerCase();
         Map<Character, Integer> checkMap = new HashMap<>();
+        // Count normalized characters, then scan again to preserve their order.
         for (int i=0;i<inputString.length();i++){
             checkMap.put(inputString.charAt(i),checkMap.getOrDefault(inputString.charAt(i),0)+1);
         }

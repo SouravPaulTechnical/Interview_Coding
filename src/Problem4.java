@@ -1,12 +1,15 @@
 import java.util.*;
 
 public class Problem4 {
+    // Returns only test names that occur more than once, along with their counts.
     public Map<String, Integer> findDuplicateTestCases(List<String> inputList){
         Map<String, Integer> calculateMap=new HashMap<>();
+        // Count each occurrence of every input test name.
         for (String eachInput:inputList){
             calculateMap.put(eachInput,calculateMap.getOrDefault(eachInput,0)+1);
         }
         Map<String, Integer> newMap=new HashMap<>();
+        // Keep entries whose total count indicates a duplicate.
         for (String eachInput:inputList){
             if (calculateMap.get(eachInput)>1){
                 newMap.put(eachInput, calculateMap.get(eachInput));
