@@ -39,6 +39,8 @@ Each problem has a Java implementation in `src/` and a matching prompt in [`src/
 | 21 | First non-repeating integer | `HashMap`, frequency counting, order | [Prompt](src/Questions/Problem21.md) | [Problem21.java](src/Problem21.java) |
 | 22 | Longest common prefix | Strings, character comparison, prefix scan | [Prompt](src/Questions/Problem22.md) | [Problem22.java](src/Problem22.java) |
 | 23 | Plus one to a digit array | Arrays, carry propagation | [Prompt](src/Questions/Problem23.md) | [Problem23.java](src/Problem23.java) |
+| 24 | Single number | Bit manipulation, XOR, frequency counting | [Prompt](src/Questions/Problem24.md) | [Problem24.java](src/Problem24.java) |
+| 25 | Contains duplicate | Arrays, `HashSet`, duplicate detection | [Prompt](src/Questions/Problem25.md) | [Problem25.java](src/Problem25.java) |
 
 ## Requirements
 
@@ -74,12 +76,12 @@ Most classes include a `main` method. Some read input from the terminal; others 
 
 ```text
 src/
-├── Problem1.java ... Problem23.java   # Standalone Java solutions
+├── Problem1.java ... Problem25.java   # Standalone Java solutions
 └── Questions/
-    └── Problem1.md ... Problem23.md   # Matching prompts and examples
+    └── Problem1.md ... Problem25.md   # Matching prompts and examples
 ```
 
-The numbered prompt and solution files are paired by number. A few prompts retain their original interview or practice wording, so use the corresponding Java source to see the implemented version of the exercise.
+The numbered prompt and solution files are paired by number. Problem 24 includes both an XOR solution with constant extra space and a frequency-map alternative. Problem 25 uses a `HashSet` to detect repeated values. A few prompts retain their original interview or practice wording, so use the corresponding Java source to see the implemented version of the exercise.
 
 ## Practice tips
 
